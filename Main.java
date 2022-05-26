@@ -14,7 +14,7 @@ public class Main {
     }
 
     public void Insertar() // OPCION 2--Inserte el caracter entre cada letra de la cadena
-    {   
+    {   String frase;
     }
 
     public static void main(String[] args) {

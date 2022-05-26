@@ -15,6 +15,20 @@ public class Main {
 
     public void Insertar() // OPCION 2--Inserte el caracter entre cada letra de la cadena
     {   String frase;
+        int fi;
+        char car;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca una frase: ");
+        frase = sca.nextLine();
+        System.out.println("Ingrese el caracter a insertar en la cadena: ");
+        car = sca.next().charAt(0);
+        sca.close();
+        char [] letras = frase.toCharArray();
+        System.out.println("La cadena con el caracter insertado es: ");
+        for(fi=0; fi<letras.length;fi++)
+        {   System.out.print(letras[fi]); //Muestra cadena
+            System.out.print(car);        //Muestra el char a insertar  
+        }
     }
 
     public static void main(String[] args) {

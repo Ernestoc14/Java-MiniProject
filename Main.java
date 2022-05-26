@@ -31,6 +31,41 @@ public class Main {
         }
     }
 
+    public void ReplaceAll() // OPCION 3--Reemplace todos los digitos en la cadena por el caracter
+    {
+    }
+
+    public void ReplcaceSpaces() // OPCION 4--Reemplazar todos los espacios por el caracter
+    {
+    }
+
+    public void Concatenar() // OPCION 5--Concatenar dos cadenas
+    {
+    }
+
+    public void CharEnCad() // OPCION 6--Indicar si un carácter forma parte de una cadena
+    {
+    }
+
+    public void Inverso() // OPCION 7--Escribir una cadena en orden inverso
+    {
+    }
+
+    public void PrimLet()// OPCION 8--Devolver la primera letra de cada palabra de la cadena
+    {
+    }
+
+    public void PrimMayus()// OPCION 9--Convertir a mayúscula la primera letra de cada palabra de la cadena
+    {
+    }
+
+    public void  CadEnCad()// OPCION 10--Indique si una cadena forma parte de otra
+    {
+    }
+
+
+
+
     public static void main(String[] args) {
         int opc;
         opc = 0;
@@ -43,18 +78,60 @@ public class Main {
         System.out.println("1-Contar la cantidad de palabras en una frase ");
         System.out.println("2-Inserte el caracter entre cada letra de la cadena ");
         System.out.println("3-Reemplace todos los digitos en la cadena por el caracter ");
+        System.out.println("4-Reemplazar todos los espacios por el carácter ");
+        System.out.println("5-Concatenar dos cadenas ");
+        System.out.println("6-Indicar si un carácter forma parte de una cadena ");
+        System.out.println("7-Escribir una cadena en orden inverso ");
+        System.out.println("8-Devolver la primera letra de cada palabra de la cadena");
+        System.out.println("9-Convertir a mayúscula la primera letra de cada palabra de la cadena");
+        System.out.println("10-Indique si una cadena forma parte de otra");
+        System.out.println("11-Salir ");
+
         System.out.println("Seleccione la opcion a realizar: ");
         opc = sn.nextInt();
+        if(opc<=10)
+        {   switch (opc) 
+            {   case 1: mn.Contar();         //Contar la cantidad de palabras en una frase
+                    break;
 
-        switch (opc) {
-            case 1: mn.Contar();
-                break;
-            case 2: mn.Insertar();
-                break;
-        
-            default:
-                break;
+                case 2: mn.Insertar();       //Inserte el caracter entre cada letra de la cadena
+                    break;
+
+                case 3: mn.ReplaceAll();     //Reemplace todos los digitos en la cadena por el caracter
+                    break;
+
+                case 4: mn.ReplcaceSpaces();  //Reemplazar todos los espacios por el carácter
+                    break;
+
+                case 5: mn.Concatenar();       //Concatenar dos cadenas
+                    break;
+
+                case 6:   mn.CharEnCad();      //Indicar si un carácter forma parte de una cadena 
+                    break;   
+
+                case 7:  mn.Inverso();       //Escribir una cadena en orden inverso
+                    break;
+
+                case 8:   mn.PrimLet();      //Devolver la primera letra de cada palabra de la cadena
+                    break;
+
+                case 9:   mn.PrimMayus();      //Convertir a mayúscula la primera letra de cada palabra de la cadena
+                    break;  
+
+                case 10:  mn.CadEnCad();      //Indique si una cadena forma parte de otra
+                    break;
+
+                // case 11:   System.out.print("Opcion invalida");//Salir
+                //     break;
+
+                default:    System.out.println("Opcion invalida");//Salir
+                    break;
+            }
+            System.out.println("Final");
+            sn.close();
         }
-        sn.close();
+        else{
+            System.out.println("Valor invalido, debe ser menor a 11");
+        }
     }
 }

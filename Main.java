@@ -40,7 +40,10 @@ public class Main {
     }
 
     public void Concatenar() // OPCION 5--Concatenar dos cadenas
-    {
+    {   String cad1, cad2, cadcon;
+        //Introduzca una cad leer cad1
+        //Introduzca una cad leer cad2
+        // cadcon = cad1.concatenar(cad2)
     }
 
     public void CharEnCad() // OPCION 6--Indicar si un carácter forma parte de una cadena

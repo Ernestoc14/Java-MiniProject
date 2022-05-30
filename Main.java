@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Introduzca una frase: ");
         frase = sca.nextLine();
         System.out.println("Ingrese el caracter a insertar en la cadena: ");
-        car = sca.next().charAt(0);
+        car = sca.next().charAt(0); //Leer un character
         sca.close();
         char [] letras = frase.toCharArray();
         System.out.println("La cadena con el caracter insertado es: ");
@@ -32,22 +32,84 @@ public class Main {
     }
 
     public void ReplaceAll() // OPCION 3--Reemplace todos los digitos en la cadena por el caracter
-    {
+    {   String cadena;
+        int fi;
+        char car;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca una cadena: ");
+        cadena = sca.nextLine();
+        System.out.println("Ingrese el caracter a reemplazar en la cadena: ");
+        car = sca.next().charAt(0); //Leer un character
+        sca.close();
+        char [] letras = cadena.toCharArray();
+        //Reemplazo
+        for(fi=0; fi<letras.length;fi++)
+        {    letras[fi] = car; 
+        }
+
+        System.out.println("La cadena con el caracter reemplazado es: ");
+        for(fi=0; fi<letras.length;fi++)
+        {    System.out.print(letras[fi]); 
+        } 
     }
 
     public void ReplcaceSpaces() // OPCION 4--Reemplazar todos los espacios por el caracter
-    {
+    {   String cadena;
+        char car;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca una cadena: ");
+        cadena = sca.nextLine();
+        System.out.println("Ingrese el caracter a reemplazar en la cadena: ");
+        car = sca.next().charAt(0); //Leer un character
+        sca.close();
+        //Reemplazo
+        String reemplazo = cadena.replace(' ', car); 
+        System.out.printf("La cadena con el caracter reemplazado es: %s ",reemplazo);
     }
 
     public void Concatenar() // OPCION 5--Concatenar dos cadenas
     {   String cad1, cad2, cadcon;
-        //Introduzca una cad leer cad1
-        //Introduzca una cad leer cad2
-        // cadcon = cad1.concatenar(cad2)
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca la cadena 1: ");
+        cad1 = sca.nextLine();
+        System.out.println("Introduzca la cadena 2: ");
+        cad2 = sca.nextLine();
+        cadcon = cad1.concat(cad2);
+        System.out.printf("La cadena concatenada es: %s ", cadcon);
+        sca.close();
     }
 
     public void CharEnCad() // OPCION 6--Indicar si un carácter forma parte de una cadena
-    {
+    {   String cadena;
+        char car;
+        int fi; 
+        int contador;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca una cadena: ");
+        cadena = sca.nextLine();
+        System.out.println("Ingrese el caracter a verificar en la cadena: ");
+        car = sca.next().charAt(0); //Leer un character
+        sca.close();
+        char [] letras = cadena.toCharArray();
+        //Reemplazo
+        for(fi=0; fi<letras.length;fi++)
+        {   if (car == letras [fi]) 
+            { contador=+1;
+            }
+            else
+            { contador=0;
+            }
+        }
+        if(contador<=0)
+        { System.out.printf("El caracter %s no se encuentra en la cadena %s ",car,cadena);
+        }
+        else
+        { System.out.printf("El caracter %s se encuentra %d veces en la cadena %s ",car ,contador ,cadena);
+        }
+        System.out.println("La cadena con el caracter reemplazado es: ");
+        for(fi=0; fi<letras.length;fi++)
+        {    System.out.print(letras[fi]); 
+        }
     }
 
     public void Inverso() // OPCION 7--Escribir una cadena en orden inverso
@@ -92,8 +154,7 @@ public class Main {
 
         System.out.println("Seleccione la opcion a realizar: ");
         opc = sn.nextInt();
-        if(opc<=10)
-        {   switch (opc) 
+           switch (opc) 
             {   case 1: mn.Contar();         //Contar la cantidad de palabras en una frase
                     break;
 
@@ -130,11 +191,7 @@ public class Main {
                 default:    System.out.println("Opcion invalida");//Salir
                     break;
             }
-            System.out.println("Final");
             sn.close();
-        }
-        else{
-            System.out.println("Valor invalido, debe ser menor a 11");
-        }
+        
     }
 }

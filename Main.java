@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -46,7 +48,6 @@ public class Main {
         for(fi=0; fi<letras.length;fi++)
         {    letras[fi] = car; 
         }
-
         System.out.println("La cadena con el caracter reemplazado es: ");
         for(fi=0; fi<letras.length;fi++)
         {    System.out.print(letras[fi]); 
@@ -74,7 +75,7 @@ public class Main {
         cad1 = sca.nextLine();
         System.out.println("Introduzca la cadena 2: ");
         cad2 = sca.nextLine();
-        cadcon = cad1.concat(cad2);
+        cadcon = cad1.concat(cad2); //Concatenar
         System.out.printf("La cadena concatenada es: %s ", cadcon);
         sca.close();
     }
@@ -83,60 +84,98 @@ public class Main {
     {   String cadena;
         char car;
         int fi; 
-        int contador;
+        int contador=0;
         Scanner sca = new Scanner(System.in);
         System.out.println("Introduzca una cadena: ");
         cadena = sca.nextLine();
         System.out.println("Ingrese el caracter a verificar en la cadena: ");
         car = sca.next().charAt(0); //Leer un character
         sca.close();
-        char [] letras = cadena.toCharArray();
-        //Reemplazo
-        for(fi=0; fi<letras.length;fi++)
-        {   if (car == letras [fi]) 
-            { contador=+1;
-            }
-            else
-            { contador=0;
+        //Verificando 
+        for(fi=0; fi<cadena.length();fi++)
+        {   if (cadena.charAt(fi)==car) 
+            { contador++;
             }
         }
-        if(contador<=0)
-        { System.out.printf("El caracter %s no se encuentra en la cadena %s ",car,cadena);
-        }
-        else
-        { System.out.printf("El caracter %s se encuentra %d veces en la cadena %s ",car ,contador ,cadena);
-        }
-        System.out.println("La cadena con el caracter reemplazado es: ");
-        for(fi=0; fi<letras.length;fi++)
-        {    System.out.print(letras[fi]); 
+        if(contador>=0)
+        { System.out.printf("El caracter %s se encuentra %d veces en la cadena: %s ",car ,contador ,cadena);
         }
     }
 
     public void Inverso() // OPCION 7--Escribir una cadena en orden inverso
-    {
+    {   String cadena;
+        int fi,inv; 
+        char [] inverso = new char [50];
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca una cadena: ");
+        cadena = sca.nextLine();
+        char [] letras = cadena.toCharArray();
+        sca.close();
+        //Invirtiendo el cadena
+        System.out.println("La cadena invertida es: ");
+        for(fi=letras.length-1, inv=0;fi>=0;fi--,inv++)
+        {   inverso [inv] = letras[fi];
+            System.out.printf("%s",inverso[inv]);
+        }
     }
 
     public void PrimLet()// OPCION 8--Devolver la primera letra de cada palabra de la cadena
-    {
+    {   String cadena;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca la cadena: ");
+        cadena = sca.nextLine();
+        sca.close();
+        //Devolucion 
+        char c[] = cadena.toCharArray();
+        System.out.println("Las primeras letras de cada palabra son: ");
+        for (int i=0; i < c.length; i++) 
+        {  // Logic to implement first character of each word in a string
+            if(c[i] != ' ' && (i == 0 || c[i-1] == ' ')) 
+            { System.out.println(c[i]);
+            }
+        }
     }
 
     public void PrimMayus()// OPCION 9--Convertir a mayúscula la primera letra de cada palabra de la cadena
-    {
+    {   String cadena;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca la cadena: ");
+        cadena = sca.nextLine();
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cadena);
+        sca.close();
+        //Conversion
+        while(match.find())
+        {   match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        System.out.printf("La conversion de la cadena con mayusculas es: %s",match.appendTail(strbf).toString());
     }
 
     public void  CadEnCad()// OPCION 10--Indique si una cadena forma parte de otra
-    {
+    {   String cad1,cad2;
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Introduzca una cadena: ");
+        cad1 = sca.nextLine();
+        System.out.println("Ingrese la otra cadena: ");
+        cad2 = sca.nextLine();
+        sca.close();
+        //Verificando 
+        if(cad1.contains(cad2))
+        { System.out.printf("La cadena %s CONTIENE a la cadena %s. ",cad1 ,cad2);
+        }
+        else
+        { System.out.printf("La cadena %s NO CONTIENE a la cadena %s. ",cad1 ,cad2);
+        }
     }
 
-
-
-
     public static void main(String[] args) {
-        int opc;
-        opc = 0;
+        int opc = 0;
+        int ow =1;
         Main mn = new Main();
         Scanner sn = new Scanner(System.in);
 
+        // while(ow == 1);
+        // {
         // ------------------------------MENU-----------------------------------------------
         System.out.println("Bienvenido al menu del Mini-Proyecto");
         System.out.println("Manejo de Strings, estas son las opciones");
@@ -154,7 +193,7 @@ public class Main {
 
         System.out.println("Seleccione la opcion a realizar: ");
         opc = sn.nextInt();
-           switch (opc) 
+        switch (opc) 
             {   case 1: mn.Contar();         //Contar la cantidad de palabras en una frase
                     break;
 
@@ -185,13 +224,13 @@ public class Main {
                 case 10:  mn.CadEnCad();      //Indique si una cadena forma parte de otra
                     break;
 
-                // case 11:   System.out.print("Opcion invalida");//Salir
-                //     break;
-
+                case 11:   System.out.print("Saliendo");//Salir
+                   break;
                 default:    System.out.println("Opcion invalida");//Salir
                     break;
             }
-            sn.close();
-        
+            // System.out.println("\nDesea continuar? 1-Si 2-No: ");
+            // ow = sn.nextInt();  
+       sn.close();
     }
 }

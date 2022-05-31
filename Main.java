@@ -170,7 +170,7 @@ public class Main {
 
     public static void main(String[] args) {
         int opc = 0;
-        int ow =1;
+        //int ow =1;
         Main mn = new Main();
         Scanner sn = new Scanner(System.in);
 
@@ -179,6 +179,7 @@ public class Main {
         // ------------------------------MENU-----------------------------------------------
         System.out.println("Bienvenido al menu del Mini-Proyecto");
         System.out.println("Manejo de Strings, estas son las opciones");
+        System.out.println("Desarrollado por Ernesto Crespo ");
         System.out.println("1-Contar la cantidad de palabras en una frase ");
         System.out.println("2-Inserte el caracter entre cada letra de la cadena ");
         System.out.println("3-Reemplace todos los digitos en la cadena por el caracter ");

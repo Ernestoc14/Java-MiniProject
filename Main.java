@@ -117,6 +117,8 @@ public class Main {
         {   inverso [inv] = letras[fi];
             System.out.printf("%s",inverso[inv]);
         }
+        //Add Palindromo
+
     }
 
     public void PrimLet()// OPCION 8--Devolver la primera letra de cada palabra de la cadena
@@ -163,6 +165,7 @@ public class Main {
         if(cad1.contains(cad2))
         { System.out.printf("La cadena %s CONTIENE a la cadena %s. ",cad1 ,cad2);
         }
+        //C2 a c1
         else
         { System.out.printf("La cadena %s NO CONTIENE a la cadena %s. ",cad1 ,cad2);
         }
